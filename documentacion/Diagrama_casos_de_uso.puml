@@ -1,0 +1,16 @@
+@startuml
+left to right direction
+actor "Administrador de inventario" as Admin
+rectangle "BYTE TECH - Sistema de inventario" {
+  usecase "Registrar producto" as UC1
+  usecase "Consultar inventario" as UC2
+  usecase "Buscar producto" as UC3
+  usecase "Actualizar producto" as UC4
+  usecase "Eliminar producto" as UC5
+}
+Admin --> UC1
+Admin --> UC2
+Admin --> UC3
+Admin --> UC4
+Admin --> UC5
+@enduml

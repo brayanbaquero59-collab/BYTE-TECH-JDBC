@@ -1,0 +1,39 @@
+@startuml
+skinparam classAttributeIconSize 0
+class Main {
+  +main(args: String[]): void
+}
+class VentanaPrincipal {
+  -productoDAO: ProductoDAO
+  -idSeleccionado: int
+  +VentanaPrincipal()
+  -insertarProducto(): void
+  -cargarProductos(filtro: String): void
+  -actualizarProducto(): void
+  -eliminarProducto(): void
+  -limpiarFormulario(): void
+}
+class Producto {
+  -id: int
+  -nombre: String
+  -categoria: String
+  -marca: String
+  -precio: BigDecimal
+  -stock: int
+  -descripcion: String
+}
+class ProductoDAO {
+  +listar(filtro: String): List<Producto>
+  +insertar(producto: Producto): void
+  +actualizar(producto: Producto): boolean
+  +eliminar(id: int): boolean
+  +contarProductos(): int
+}
+class ConexionBD {
+  +obtenerConexion(): Connection
+}
+Main ..> VentanaPrincipal
+VentanaPrincipal --> ProductoDAO
+ProductoDAO --> Producto
+ProductoDAO ..> ConexionBD
+@enduml
